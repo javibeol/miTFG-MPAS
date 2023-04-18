@@ -1,0 +1,16 @@
+<p>Nombre de la malla: {{nombre}}</p>
+
+<p>Descripción: {{descripcion}}</p>
+
+<p>Prueba: {{getPrueba()}}</p>
+
+<br/>
+<br/>
+
+{{textoRegistro}}<br/>
+<!--Registrado: <input type="checkbox" name="nRegistro" id="registro" [checked]="usuarioRegistrado" (click)="setUsuarioRegistrado()"/><br/>
+ -->
+Registrado: <input type="radio" value="si" name="nRegistro" id="registro" [checked]="usuarioRegistrado" (click)="setUsuarioRegistrado($event)"/><br/>
+No Registrado: <input type="radio" value="no" name="nRegistro" (click)="setUsuarioRegistrado($event)">
+
+{{getRegistroUsuario()}}
