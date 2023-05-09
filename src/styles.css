@@ -1,11 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 98%; }
-body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+body {
     background-image: url('./assets/hexagonos1.png');
-    background-size: 100% 105%;
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center center;
-    
-}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Agregar margen para que el menú no se superponga al contenido */
+main {
+  margin-top: -30px;/* Ajusta este valor según la altura de tu barra de navegación */
+  }
+
+/* Barra de navegador fija */
+.navbar-container {
+    position: fixed;
+  }
+  
+  
+  

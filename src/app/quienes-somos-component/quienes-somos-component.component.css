@@ -1,0 +1,18 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    margin-top: 65px;
+}
+  
+
+.centered-content {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Añade esta línea para un fondo blanco semitransparente */
+    padding: 20px; /* Añade un poco de espacio alrededor del texto */
+    border-radius: 5px; /* Añade bordes redondeados al recuadro */
+    font-size: 24px;
+  }
