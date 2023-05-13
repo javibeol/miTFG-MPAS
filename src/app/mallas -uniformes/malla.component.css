@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.radio-group {
+    width: 27%;
+    margin-bottom: 10px;
+}
+
+.radio-group label {
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .radio-group {
+      width: 50%;
+    }
+}
+  

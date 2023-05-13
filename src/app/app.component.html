@@ -5,7 +5,7 @@
         <a class="nav-link" href="">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Mallas</a>
+        <a class="nav-link" href="/mallas" *ngIf="estaLogueado()">Mallas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/quienes">Quiénes somos</a>
@@ -13,8 +13,8 @@
       <li class="nav-item">
         <a class="nav-link" href="/contacto">Contacto</a>
       </li>
-      <li class="nav-item" style="margin-left: 1050px;" *ngIf="!estaLogueado()"><a class="nav-link" routerLink="/login" style="color: green">Login</a></li>
-      <li class="nav-item" style="margin-left: 1050px;" *ngIf="estaLogueado()"><a class="nav-link" (click)="logout()" style="cursor: pointer; color: red;"
+      <li class="nav-item" style="margin-left: 1060px;" *ngIf="!estaLogueado()"><a class="nav-link" routerLink="/login" style="color: green">Login</a></li>
+      <li class="nav-item" style="margin-left: 1060px;" *ngIf="estaLogueado()"><a class="nav-link" (click)="logout()" style="cursor: pointer; color: red;"
         onmouseover="this.style.cursor='pointer'" >Logout</a></li>
     </ul>
 

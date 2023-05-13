@@ -1,3 +1,46 @@
-<h2 style="text-align: center;">Mallas disponibles</h2>
+<br><br>
+<head>
+  <!-- Resto de las etiquetas head -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
+</head>
+<div class="centered-container">
+    <div class="centered-content">
+      <h1>PASOS PARA COMENZAR UNA SIMULACIÓN: </h1>
+      <p style="color: green;">1. Introduzca su Latitud y Longitud.</p>
+      <p>2. Seleccione una malla y haga clic en siguiente.</p>
+      <p>3. Reposicione la malla.</p>
+      <p>4. ...</p>
+
+    </div>
+</div>
+<br><br><br><br>
+<h2 style="text-align: center;">Introduzca su Latitud y Longitud</h2>
+<div class="container">
+  <label for="latitude">Latitud:</label>
+  <input type="text" id="latitud" [(ngModel)]="latitud">
+  <label for="longitude">Longitud:</label>
+  <input type="text" id="longitud" [(ngModel)]="longitud">
+</div>
+<br><br>
+
+<h2 style="text-align: center;">Mallas Uniformes disponibles</h2>
 <app-malla></app-malla>
-<app-malla></app-malla>
+<br>
+
+<h2 style="text-align: center;">Mallas Variables disponibles</h2>
+<br>
+<div style="display:flex; justify-content:center;">
+    <div class="form-check" *ngFor="let option of imageOptions">
+      <input class="form-check-input" type="radio" name="mesh" [value]="option" [(ngModel)]="selectedImage">
+      <label class="form-check-label">
+            <div>{{ option.title }}</div>
+            <div>{{ option.description }}</div>
+        <img [src]="'assets/' + option.value + '.png'" style="margin:30px; cursor:pointer;" (click)="selectImage(option.value)"> 
+    </label>
+    </div>
+</div>
+<div style="display:flex; justify-content:center;">
+  <button class="btn" (click)="goToNextPage()">Siguiente</button>
+</div>
+<br>
+  

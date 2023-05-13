@@ -18,6 +18,7 @@ export class LoginService {
         (signInMethods: string[]) => {
             if (signInMethods.length === 0) {
                 console.log(`El usuario con email ${email} no existe en la base de datos`);
+                alert(`El usuario con email ${email} no existe en la base de datos`);
                 throw new Error('El usuario no existe');
             } else {
                 return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -40,6 +41,7 @@ export class LoginService {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(`Error code: ${errorCode}, Error message: ${errorMessage}`);
+            alert(`La contraseña es incorrecta`);
             throw new Error('Contraseña incorrecta');
         }
     );

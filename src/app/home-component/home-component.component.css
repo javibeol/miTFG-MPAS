@@ -1,0 +1,20 @@
+.btn {
+    background-color: #3e75db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    display: block; /* convierte el botón en un bloque para poder centrarlo */
+    margin: 0 auto; /* establece los márgenes izquierdo y derecho como 'auto' para centrar el botón horizontalmente */
+  }
+
+  .btn:hover {
+    background-color: green;
+  }
+  
+  img:hover {
+    filter: brightness(0.8); /* cambia la luminosidad de la imagen para dar efecto de cambio de color */
+  }
