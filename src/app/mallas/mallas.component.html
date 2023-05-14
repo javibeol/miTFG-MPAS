@@ -1,44 +1,163 @@
-<br><br>
 <head>
   <!-- Resto de las etiquetas head -->
   <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
 </head>
 <div class="centered-container">
     <div class="centered-content">
-      <h1>PASOS PARA COMENZAR UNA SIMULACIÓN: </h1>
-      <p style="color: green;">1. Introduzca su Latitud y Longitud.</p>
-      <p>2. Seleccione una malla y haga clic en siguiente.</p>
-      <p>3. Reposicione la malla.</p>
-      <p>4. ...</p>
-
+      <!-- <h1>PASOS PARA COMENZAR UNA SIMULACIÓN: </h1> -->
+      <p>· En el caso de Mallas casi uniformes: Seleccione una malla y haga clic en Siguiente.</p>
+      <p>· En el caso de Mallas de resolución variable: Introduzca su Latitud y Longitud, seleccione una malla y haga clic en Siguiente.</p>
     </div>
-</div>
-<br><br><br><br>
-<h2 style="text-align: center;">Introduzca su Latitud y Longitud</h2>
-<div class="container">
-  <label for="latitude">Latitud:</label>
-  <input type="text" id="latitud" [(ngModel)]="latitud">
-  <label for="longitude">Longitud:</label>
-  <input type="text" id="longitud" [(ngModel)]="longitud">
 </div>
 <br><br>
+<h2 style="text-align: center; color: #04085a;">Mallas casi uniformes</h2>
+<!-- <app-malla></app-malla> -->
+<div class="centro">Selecciona una malla:</div>
+<div class="container">
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh1" value="x1.2562.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 480 km (2562 celdas de cuadrícula horizontales)'">
+    <label for="mesh1">Malla de 480 km (2562 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh2" value="x1.4002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 384 km (4002 celdas de cuadrícula horizontales)'">
+    <label for="mesh2">Malla de 384 km (4002 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh3" value="x1.10242.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 240 km (10242 celdas de cuadrícula horizontales)'">
+    <label for="mesh3">Malla de 240 km (10242 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh4" value="x1.40962.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 120 km (40962 celdas de cuadrícula horizontales)'">
+    <label for="mesh4">Malla de 120 km (40962 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh5" value="x1.163842.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 60 km (163842 celdas de cuadrícula horizontales)'">
+    <label for="mesh5">Malla de 60 km (163842 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh6" value="x1.256002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 48 km (256002 celdas de cuadrícula horizontales)'">
+    <label for="mesh6">Malla de 48 km (256002 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh7" value="x1.655362.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 30 km (655362 celdas de cuadrícula horizontales)'">
+    <label for="mesh7">Malla de 30 km (655362 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh8" value="x1.1024002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 24 km (1024002 celdas de cuadrícula horizontales)'">
+    <label for="mesh8">Malla de 24 km (1024002 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh9" value="x1.2621442.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 15 km (2621442 celdas de cuadrícula horizontales)'">
+    <label for="mesh9">Malla de 15 km (2621442 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+    <input type="radio" name="mesh-U" id="mesh10" value="x1.4096002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 12 km (4096002 celdas de cuadrícula horizontales)'">
+    <label for="mesh10">Malla de 12 km (4096002 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh11" value="x1.5898242.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 10 km (5898242 celdas de cuadrícula horizontales)'">
+      <label for="mesh11">Malla de 10 km (5898242 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh12" value="x1.10485762.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 7,5 km (10485762 celdas de cuadrícula horizontales)'">
+  <label for="mesh12">Malla de 7,5 km (10485762 celdas de cuadrícula horizontales)</label>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh13" value="x1.23592962.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 5 km (23592962 celdas de cuadrícula horizontales)'">
+      <label for="mesh13">Malla de 5 km (23592962 celdas de cuadrícula horizontales)</label><br>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh14" value="x1.36864002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 4 km (36864002 celdas de cuadrícula horizontales)'">
+      <label for="mesh14">Malla de 4 km (36864002 celdas de cuadrícula horizontales)</label><br>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh15" value="x1.41943042.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 3,75 km (41943042 celdas de cuadrícula horizontales)'">
+      <label for="mesh15">Malla de 3,75 km (41943042 celdas de cuadrícula horizontales)</label><br>
+  </div>
+  <div class="radio-group">
+      <input type="radio" name="mesh-U" id="mesh16" value="x1.65536002.tar.gz" [(ngModel)]="selectedUniformeMesh" [attr.data-label]="'Malla de 3 km (65536002 celdas de cuadrícula horizontales)'">
+      <label for="mesh16">Malla de 3 km (65536002 celdas de cuadrícula horizontales)</label>
+  </div>
+</div>
 
-<h2 style="text-align: center;">Mallas Uniformes disponibles</h2>
-<app-malla></app-malla>
-<br>
-
-<h2 style="text-align: center;">Mallas Variables disponibles</h2>
 <br>
 <div style="display:flex; justify-content:center;">
-    <div class="form-check" *ngFor="let option of imageOptions">
-      <input class="form-check-input" type="radio" name="mesh" [value]="option" [(ngModel)]="selectedImage">
-      <label class="form-check-label">
-            <div>{{ option.title }}</div>
-            <div>{{ option.description }}</div>
-        <img [src]="'assets/' + option.value + '.png'" style="margin:30px; cursor:pointer;" (click)="selectImage(option.value)"> 
-    </label>
-    </div>
+  <button class="btn" (click)="goToNextPageUniforme()">Siguiente</button>
 </div>
+<br><br>
+<!-- <iframe src="https://mpas-dev.github.io/atmosphere/atmosphere_meshes.html" width="100%" height="500px"></iframe> -->
+
+
+
+<h2 style="text-align: center; color: #04085a;">Mallas de resolución variable disponibles</h2>
+<div class="centro">Introduzca la Latitud y Longitud deseada:</div>
+<div class="container">
+  <label for="latitude">Latitud:</label>
+  <input type="text" id="latitud" [(ngModel)]="latitud" required>
+  <label for="longitude">Longitud:</label>
+  <input type="text" id="longitud" [(ngModel)]="longitud" required>
+</div>
+<br><br>
+<div class="centro">Selecciona una malla:</div>
+<div class="image-container" style="display:flex; justify-content:center;">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x4.163842.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 92 km a 25 km'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 92 km a 25 km</div>
+      <img src="assets/1.92-25.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option1')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x4.655362.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 46 km a 12 km'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 46 km a 12 km</div>
+      <img src="assets/2.46-12.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option2')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x4.535554.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 60 km a 15 km'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 60 km a 15 km</div>
+      <img src="assets/3.60-15.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option3')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x6.999426.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 60 km a 10 km'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 60 km a 10 km</div>
+      <img src="assets/4.60-10.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option4')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x20.835586.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 60 km a 3 km'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 60 km a 3 km</div>
+      <img src="assets/5.60-3.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option5')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x4.1572866.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 60 km a 15 km (refinamiento tropical)'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 60 km a 15 km (refinamiento tropical)</div>
+      <img src="assets/6.60-15.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option6')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x5.6488066.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 15 km a 3 km (refinamiento circular)'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 15 km a 3 km (refinamiento circular)</div>
+      <img src="assets/7.15-3.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option7')">
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="mesh" value="x5.8060930.tar.gz" [(ngModel)]="selectedMesh" [attr.data-label]="'Malla de 15 km a 3 km (refinamiento elíptico)'">
+    <label class="form-check-label label-spacing">
+      <div>Malla de 15 km a 3 km (refinamiento elíptico)</div>
+      <img src="assets/8.15-3.png" style="margin:30px; cursor:pointer;" (click)="selectImage('option8')">
+    </label>
+  </div>
+</div>
+
 <div style="display:flex; justify-content:center;">
   <button class="btn" (click)="goToNextPage()">Siguiente</button>
 </div>

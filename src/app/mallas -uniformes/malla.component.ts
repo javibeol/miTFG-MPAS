@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MallaService } from '../mallas/malla.service';
 
 @Component({
   selector: 'app-malla',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./malla.component.css']
 })
 export class MallaComponent {
+  constructor(private mallaService: MallaService) {}
 
-  constructor(){}
+  selectedMesh: string = '';
 
+  selectMesh(mesh: string): void {
+    this.mallaService.setSelectedMesh(mesh);
+  }
 }

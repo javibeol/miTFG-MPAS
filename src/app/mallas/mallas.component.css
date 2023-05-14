@@ -8,7 +8,6 @@
     margin-top: 65px;
 }
   
-
 .centered-content {
     text-align: left;
     background-color: rgba(196, 222, 255, 0.5); /* Añade esta línea para un fondo blanco semitransparente */
@@ -17,7 +16,7 @@
     font-size: 24px;
   }
 
-  .btn {
+.btn {
     background-color: rgb(91, 204, 252);
     color: white;
     padding: 10px 20px;
@@ -28,19 +27,56 @@
     transition: all 0.2s;
   }
   
-  .btn:hover {
+.btn:hover {
     background-color: green;
   }
 
-  .container {
+.container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
   
-  .container label {
+.container label {
     margin-right: 10px;
     margin-left: 20px;
   }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+.form-check {
+    width: 33.33%;
+    padding: 30px;
+  }
+
+.label-spacing {
+    margin-left: 0px; /* Ajusta el valor del margen según tus necesidades */
+  }
+  
+  
+.centro {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-weight: bold; /* Aplica negrita al texto */
+  }
+  
+.radio-group {
+    width: 40%;
+    margin-bottom: 10px;
+}
+
+.radio-group label {
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .radio-group {
+      width: 50%;
+    }
+}
   

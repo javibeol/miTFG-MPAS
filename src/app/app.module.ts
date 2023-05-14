@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuardian } from './login/login-guardian';
 import { RegisterComponent } from './register/register.component';
+import { MallaService } from './mallas/malla.service';
+import { NextPageComponent } from './next-page/next-page.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponentComponent},
@@ -26,6 +28,7 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesSomosComponentComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegisterComponent},
+  {path:'next', component:NextPageComponent},
   {path:'**', component:ErrorPersonalizadoComponentComponent}
 ];
 
@@ -39,7 +42,8 @@ const appRoutes:Routes=[
     QuienesSomosComponentComponent,
     ErrorPersonalizadoComponentComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NextPageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DataServices, LoginService, CookieService, LoginGuardian],
+  providers: [DataServices, LoginService, CookieService, LoginGuardian, MallaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

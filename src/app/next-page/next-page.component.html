@@ -1,0 +1,17 @@
+<br><br><br><br>
+<div class="centered-container">
+    <div class="centered-content">
+        <h1 style="text-align: center;">Datos previos seleccionados:</h1>
+        <p>Nombre de la Malla: {{ label }}</p>
+        <!-- <p>Imagen: {{ nombre }}</p> -->
+        <p>Latitud: {{ latitud }}</p>
+        <p>Longitud: {{ longitud }}</p>
+        <!-- <img src={{ src }} alt="Imagen"> -->
+        <div class="image-container" style="display:flex; justify-content:center;">
+            <img style="margin:30px;" *ngIf="src" [src]="src" alt="Imagen">
+        </div>
+    </div>
+</div>
+
+
+
