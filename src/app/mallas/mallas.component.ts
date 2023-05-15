@@ -30,7 +30,7 @@ export class MallasComponent implements OnInit{
     if (this.selectedUniformeMesh) {
       const selectedLabel = (<HTMLInputElement>document.querySelector('input[name="mesh-U"]:checked')).getAttribute('data-label');
       const queryParams = {
-        nombre: this.selectedMesh,
+        nombre: this.selectedUniformeMesh,
         label: selectedLabel,
         latitud: 0,
         longitud: 0
