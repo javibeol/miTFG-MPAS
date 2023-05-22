@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { MallaComponent } from "./mallas -uniformes/malla.component";
 import { DatosPrueba } from "./datosPrueba.model";
 
 @Injectable()

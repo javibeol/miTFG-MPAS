@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MallasComponent } from './mallas/mallas.component';
-import { MallaComponent } from './mallas -uniformes/malla.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { QuienesSomosComponentComponent } from './quienes-somos-component/quienes-somos-component.component';
@@ -36,7 +35,6 @@ const appRoutes:Routes=[
   declarations: [
     AppComponent,
     MallasComponent,
-    MallaComponent,
     HomeComponentComponent,
     ContactoComponentComponent,
     QuienesSomosComponentComponent,
