@@ -13,6 +13,13 @@ export class MallasComponent implements OnInit{
   
   latitud: string | undefined;
   longitud: string | undefined;
+
+  latitudMin: number = -90;
+  latitudMax: number = 90;
+  longitudMin: number = -180;
+  longitudMax: number = 180;
+  latitudErrorMessage: string = 'El valor debe estar entre el rango de -90 a 90';
+  longitudErrorMessage: string = 'El valor debe estar entre el rango de -180 a 180';
   
   constructor(private router: Router, private mallaService: MallaService){}
   
@@ -62,6 +69,26 @@ export class MallasComponent implements OnInit{
       this.router.navigate(['/next'], { queryParams: queryParams });
     }
   }
+
+
+validateLatitud() {
+  const latitud = Number(this.latitud);
+  if (isNaN(latitud) || latitud < this.latitudMin || latitud > this.latitudMax) {
+    this.latitudErrorMessage = 'La latitud debe estar en el rango de -90 a 90.';
+  } else {
+    this.latitudErrorMessage = '';
+  }
+}
+
+validateLongitud() {
+  const longitud = Number(this.longitud);
+  if (isNaN(longitud) || longitud < this.longitudMin || longitud > this.longitudMax) {
+    this.longitudErrorMessage = 'La longitud debe estar en el rango de -180 a 180.';
+  } else {
+    this.longitudErrorMessage = '';
+  }
+}
+
   
   
 }

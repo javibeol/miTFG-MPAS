@@ -16,20 +16,20 @@
         </div>
         <br><br>
         <p style="text-align: center;">Si los datos sí son los deseados, realiza los siguientes pasos:</p>
-        <p>1] Sitúate en el directorio dónde quieres realizar la ejecución.</p>
+        <p>1] Sitúate en el directorio del caso dónde quieres realizar la ejecución.</p>
         <p>2] Ejecuta el siguiente comando para descargar el archivo de la malla:</p>
-        <p style="text-align: center;">sudo wget https://www2.mmm.ucar.edu/projects/mpas/atmosphere_meshes/{{nombre}}</p>
+        <p style="text-align: center;">wget https://www2.mmm.ucar.edu/projects/mpas/atmosphere_meshes/{{nombre}}.tar.gz</p>
         <p>3] Ejecuta el siguiente comando para descomprimir el archivo que acabas de descargar:</p>
-        <p style="text-align: center;">sudo tar -xzf {{nombre}}</p>
+        <p style="text-align: center;">tar -xzf {{nombre}}.tar.gz</p>
         <!-- <p>4] Haz clic en <a [href]="generateDownloadLink()">Descargar ficheros</a> para descargar los ficheros necesarios para la simulación ya configurados para los datos seleccionados:</p> -->
-        <p>4] Haz clic en los enlaces para descargar los archivos necesarios para la simulación ya configurados para los datos seleccionados:</p>
-        <p style="text-align: center;">
+        <p *ngIf="src">4] Haz clic en los enlaces para descargar los archivos necesarios para la simulación ya configurados para los datos seleccionados:</p>
+        <p *ngIf="src" style="text-align: center;">
             <a [href]="generateDownloadLink1()" download="namelist.input">Descargar namelist.input</a> |
             <a [href]="generateDownloadLink2()" download="archivo2.txt">Descargar archivo2.txt</a> |
             <a [href]="generateDownloadLink3()" download="archivo3.txt">Descargar archivo3.txt</a>
         </p>
-        <p>5] Ejecuta el siguiente comando para ejecutar la utilidad de rotación de la malla con el fichero de configuración namelist.input que acabas de descargar:</p>
-        <p style="text-align: center;">grid_rotate input_filename.nc output_filename.nc {{nombre}}</p>
+        <p *ngIf="src">5] Ejecuta el siguiente comando para ejecutar la utilidad de rotación de la malla con el fichero de configuración namelist.input que acabas de descargar:</p>
+        <p *ngIf="src" style="text-align: center;">grid_rotate input_filename.nc output_filename.nc {{nombre}}</p>
     </div>
 </div>
 
