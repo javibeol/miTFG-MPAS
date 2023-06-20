@@ -11,8 +11,8 @@ export class MallasComponent implements OnInit{
   selectedUniformeMesh: string = '';
   selectedMesh: string = '';
   
-  latitud: string | undefined;
-  longitud: string | undefined;
+  latitud: string | null | undefined;
+  longitud: string | null | undefined;
 
   //parámetros que vienen de comprobacion
   dirMPAS: string | undefined;
@@ -36,6 +36,8 @@ export class MallasComponent implements OnInit{
 ngOnInit() {
     this.selectedUniformeMesh = this.mallaService.getSelectedUniformeMesh();
     this.selectedMesh = this.mallaService.getSelectedMesh();
+    this.latitud = this.mallaService.getLatitud();
+    this.longitud = this.mallaService.getLongitud();
 
     // Suscribo a queryParams para guardar los parámetros en las propiedades del componente
     this.route.queryParams.subscribe(params => {
@@ -74,6 +76,9 @@ goToNextPageUniforme() {
         duracion: this.duracion,
         dirGEO: this.dirGEO
       };
+      this.mallaService.setSelectedUniformeMesh(this.selectedUniformeMesh);
+      this.mallaService.setLatitud("0");
+      this.mallaService.setLongitud("0");
       this.router.navigate(['/next'], { queryParams: queryParams });
       //this.router.navigate(['/next'], { queryParams: { nombre: this.selectedUniformeMesh } });
     } else {
@@ -108,6 +113,9 @@ goToNextPage() {
         duracion: this.duracion,
         dirGEO: this.dirGEO
       };
+      this.mallaService.setSelectedMesh(this.selectedMesh);
+      this.mallaService.setLatitud(this.latitud);
+      this.mallaService.setLongitud(this.longitud);
       this.router.navigate(['/next'], { queryParams: queryParams });
     }
   }

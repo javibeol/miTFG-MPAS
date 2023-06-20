@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-comprobacion',
@@ -16,7 +18,7 @@ export class ComprobacionComponent implements OnInit {
   duracion: string | undefined;
   dirGEO: string | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -35,6 +37,11 @@ export class ComprobacionComponent implements OnInit {
     // Aquí puedes hacer lo que necesites con los parámetros y luego redirigir a /mallas
     this.router.navigate(['/mallas'], { queryParams: this.route.snapshot.queryParams });
   }
+
+  goBack() {
+    this.location.back();
+  }
+  
 
 }
 

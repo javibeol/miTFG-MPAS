@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-next-page',
@@ -24,7 +26,7 @@ export class NextPageComponent implements OnInit{
   duracion: string | undefined;
   dirGEO: string | undefined;
 
-constructor(private route: ActivatedRoute) {}
+constructor(private route: ActivatedRoute, private location: Location) {}
 
 ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -81,5 +83,10 @@ ngOnInit() {
   
     return url;
   }
+
+  goBack() {
+    this.location.back();
+  }
+  
   
 }

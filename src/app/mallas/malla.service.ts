@@ -4,20 +4,38 @@ import { Injectable } from '@angular/core';
 export class MallaService {
   private selectedUniformeMesh: string = '';
   private selectedMesh: string = '';
+  private latitud: string | null = null;
+  private longitud: string | null = null;
+
+  setSelectedUniformeMesh(selectedUniformeMesh: string) {
+    this.selectedUniformeMesh = selectedUniformeMesh;
+  }
 
   getSelectedUniformeMesh(): string {
     return this.selectedUniformeMesh;
   }
 
-  setSelectedUniformeMesh(mesh: string): void {
-    this.selectedUniformeMesh = mesh;
+  setSelectedMesh(selectedMesh: string) {
+    this.selectedMesh = selectedMesh;
   }
 
   getSelectedMesh(): string {
     return this.selectedMesh;
   }
 
-  setSelectedMesh(mesh: string): void {
-    this.selectedMesh = mesh;
+  setLatitud(latitud: string | null) {
+    this.latitud = latitud;
+  }
+
+  getLatitud(): string | null {
+    return this.latitud;
+  }
+
+  setLongitud(longitud: string | null) {
+    this.longitud = longitud;
+  }
+
+  getLongitud(): string | null {
+    return this.longitud;
   }
 }
