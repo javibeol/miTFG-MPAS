@@ -1,0 +1,63 @@
+<br><br>
+<div class="centered-container">
+    <h2 style="text-align: center; color: #04085a;">INTRODUZCA LOS SIGUIENTES DATOS DE PARTIDA:</h2>
+    <br>
+    <div class="centro">Directorio donde está instalado MPAS:</div>
+        <div class="container">
+            <label for="latitude"></label>
+            <input type="text" id="dirMPAS" [(ngModel)]="dirMPAS" style="width: 500px;" required>
+        </div>
+    <br>
+    <div class="centro">Directorio donde está instalado WPS:</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="dirWPS" [(ngModel)]="dirWPS" style="width: 500px;" required>
+    </div>
+    <br>
+    <div class="centro">Directorio de casos para MPAS (donde se van a guardar los diferentes casos)</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="dirCasos" [(ngModel)]="dirCasos" style="width: 500px;" required>
+    </div>
+    <br>
+    <div class="centro">Directorio del caso concreto para MPAS (subdirectorio del anterior donde se va a ejecutar MPAS)</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="dirCaso" [(ngModel)]="dirCaso" style="width: 500px;" required>
+    </div>
+    <br>
+    <div class="centro">Fecha de comienzo de la simulación</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="fecha" [(ngModel)]="fecha" style="width: 200px;" placeholder="yyyy-mm-dd" required>
+    </div>
+    <br>
+    <div class="centro">Hora de comienzo de la simulación</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="hora" [(ngModel)]="hora" style="width: 200px;" placeholder="00:00:00" required>
+    </div>
+    <br>
+    <div class="centro">Número de horas de la simulación</div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="duracion" [(ngModel)]="duracion" style="width: 200px;" required>
+    </div>
+    <br>
+    <div class="centro">Directorio de datos geográficos</div>
+    <div class="centro">
+        NOTA: Los datos geográficos pueden bajarse de 
+        <a href="https://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html" target="_blank">
+            https://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html
+        </a>
+    </div>
+    <div class="container">
+        <label for="latitude"></label>
+        <input type="text" id="dirGEO" [(ngModel)]="dirGEO" style="width: 500px;" required>
+    </div>
+    <br>
+</div>
+
+<div style="display:flex; justify-content:center;">
+    <button class="btn" (click)="goToComprobacion()">Siguiente</button>
+</div>

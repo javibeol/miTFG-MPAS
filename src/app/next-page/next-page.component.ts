@@ -64,15 +64,4 @@ ngOnInit() {
     return url;
   }
   
-  generateDownloadLink3(): string {
-    const fileName3 = 'archivo3.txt';
-    const fileContent3 = 'Contenido del archivo 3';
-  
-    const data = new Blob([fileContent3], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(data);
-  
-    return url;
-  }
-  
-  
 }

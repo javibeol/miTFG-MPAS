@@ -1,0 +1,44 @@
+.centered-content {
+    text-align: left;
+    background-color: rgba(196, 222, 255, 0.5); /* Añade esta línea para un fondo blanco semitransparente */
+    padding: 20px; /* Añade un poco de espacio alrededor del texto */
+    border-radius: 5px; /* Añade bordes redondeados al recuadro */
+    font-size: 24px;
+}  
+
+.centro {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-weight: bold; /* Aplica negrita al texto */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+.container label {
+    margin-right: 10px;
+    margin-left: 20px;
+  }
+
+/* input[type="text"] {
+    width: 500px;
+  } */
+  
+.btn {
+    background-color: rgb(91, 204, 252);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+  }
+  
+.btn:hover {
+    background-color: green;
+  }

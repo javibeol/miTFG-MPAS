@@ -23,17 +23,17 @@ export class MallasComponent implements OnInit{
   
   constructor(private router: Router, private mallaService: MallaService){}
   
-  ngOnInit() {
+ngOnInit() {
     this.selectedUniformeMesh = this.mallaService.getSelectedUniformeMesh();
     this.selectedMesh = this.mallaService.getSelectedMesh();
   }
 
-  selectImage(option: string) {
+selectImage(option: string) {
     this.selectedMesh = option;
     this.mallaService.setSelectedMesh(option);
   }
 
-  goToNextPageUniforme() {
+goToNextPageUniforme() {
     if (this.selectedUniformeMesh) {
       const selectedLabel = (<HTMLInputElement>document.querySelector('input[name="mesh-U"]:checked')).getAttribute('data-label');
       const queryParams = {
@@ -49,7 +49,7 @@ export class MallasComponent implements OnInit{
     }
   }
 
-  goToNextPage() {
+goToNextPage() {
     if (!this.selectedMesh) {
       alert('Debes seleccionar una malla variable antes de continuar.');
     } else if (!this.latitud) {
@@ -89,6 +89,4 @@ validateLongitud() {
   }
 }
 
-  
-  
 }

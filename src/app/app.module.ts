@@ -19,6 +19,9 @@ import { LoginGuardian } from './login/login-guardian';
 import { RegisterComponent } from './register/register.component';
 import { MallaService } from './mallas/malla.service';
 import { NextPageComponent } from './next-page/next-page.component';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { ComprobacionComponent } from './comprobacion/comprobacion.component';
+import { FormService } from './first-page/form.service';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponentComponent},
@@ -27,7 +30,9 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesSomosComponentComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegisterComponent},
+  {path:'first', component:FirstPageComponent},
   {path:'next', component:NextPageComponent},
+  {path:'comprobacion', component:ComprobacionComponent},
   {path:'**', component:ErrorPersonalizadoComponentComponent}
 ];
 
@@ -41,7 +46,9 @@ const appRoutes:Routes=[
     ErrorPersonalizadoComponentComponent,
     LoginComponent,
     RegisterComponent,
-    NextPageComponent
+    NextPageComponent,
+    FirstPageComponent,
+    ComprobacionComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DataServices, LoginService, CookieService, LoginGuardian, MallaService],
+  providers: [DataServices, LoginService, CookieService, LoginGuardian, MallaService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
