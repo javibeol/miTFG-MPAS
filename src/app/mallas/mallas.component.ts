@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MallaService } from './malla.service';
 
 @Component({
@@ -14,6 +14,16 @@ export class MallasComponent implements OnInit{
   latitud: string | undefined;
   longitud: string | undefined;
 
+  //parámetros que vienen de comprobacion
+  dirMPAS: string | undefined;
+  dirWPS: string | undefined;
+  dirCasos: string | undefined;
+  dirCaso: string | undefined;
+  fecha: string | undefined;
+  hora: string | undefined;
+  duracion: string | undefined;
+  dirGEO: string | undefined;
+
   latitudMin: number = -90;
   latitudMax: number = 90;
   longitudMin: number = -180;
@@ -21,11 +31,23 @@ export class MallasComponent implements OnInit{
   latitudErrorMessage: string = 'El valor debe estar entre el rango de -90 a 90';
   longitudErrorMessage: string = 'El valor debe estar entre el rango de -180 a 180';
   
-  constructor(private router: Router, private mallaService: MallaService){}
+  constructor(private router: Router, private mallaService: MallaService, private route: ActivatedRoute){}
   
 ngOnInit() {
     this.selectedUniformeMesh = this.mallaService.getSelectedUniformeMesh();
     this.selectedMesh = this.mallaService.getSelectedMesh();
+
+    // Suscribo a queryParams para guardar los parámetros en las propiedades del componente
+    this.route.queryParams.subscribe(params => {
+      this.dirMPAS = params['dirMPAS'];
+      this.dirWPS = params['dirWPS'];
+      this.dirCasos = params['dirCasos'];
+      this.dirCaso = params['dirCaso'];
+      this.fecha = params['fecha'];
+      this.hora = params['hora'];
+      this.duracion = params['duracion'];
+      this.dirGEO = params['dirGEO'];
+    });
   }
 
 selectImage(option: string) {
@@ -40,7 +62,17 @@ goToNextPageUniforme() {
         nombre: this.selectedUniformeMesh,
         label: selectedLabel,
         latitud: 0,
-        longitud: 0
+        longitud: 0,
+
+        //parámetros que vienen de comprobacion
+        dirMPAS: this.dirMPAS,
+        dirWPS: this.dirWPS,
+        dirCasos: this.dirCasos,
+        dirCaso: this.dirCaso,
+        fecha: this.fecha,
+        hora: this.hora,
+        duracion: this.duracion,
+        dirGEO: this.dirGEO
       };
       this.router.navigate(['/next'], { queryParams: queryParams });
       //this.router.navigate(['/next'], { queryParams: { nombre: this.selectedUniformeMesh } });
@@ -64,7 +96,17 @@ goToNextPage() {
         label: selectedLabel,
         src: imageSrc,
         latitud: this.latitud,
-        longitud: this.longitud
+        longitud: this.longitud,
+
+        //parámetros que vienen de comprobacion
+        dirMPAS: this.dirMPAS,
+        dirWPS: this.dirWPS,
+        dirCasos: this.dirCasos,
+        dirCaso: this.dirCaso,
+        fecha: this.fecha,
+        hora: this.hora,
+        duracion: this.duracion,
+        dirGEO: this.dirGEO
       };
       this.router.navigate(['/next'], { queryParams: queryParams });
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-next-page',
@@ -14,6 +14,16 @@ export class NextPageComponent implements OnInit{
   label: string | null = null;
   src: string | null = null;
 
+  //parámetros que vienen de comprobacion
+  dirMPAS: string | undefined;
+  dirWPS: string | undefined;
+  dirCasos: string | undefined;
+  dirCaso: string | undefined;
+  fecha: string | undefined;
+  hora: string | undefined;
+  duracion: string | undefined;
+  dirGEO: string | undefined;
+
 constructor(private route: ActivatedRoute) {}
 
 ngOnInit() {
@@ -23,6 +33,14 @@ ngOnInit() {
       this.longitud = params['longitud'] || null;
       this.label = params['label'] || null;
       this.src = params['src'] ? this.extractRelativePath(params['src']) : null;
+      this.dirMPAS = params['dirMPAS'];
+      this.dirWPS = params['dirWPS'];
+      this.dirCasos = params['dirCasos'];
+      this.dirCaso = params['dirCaso'];
+      this.fecha = params['fecha'];
+      this.hora = params['hora'];
+      this.duracion = params['duracion'];
+      this.dirGEO = params['dirGEO'];
     });
   }
 

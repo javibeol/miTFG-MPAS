@@ -1,1 +1,26 @@
-<p>comprobacion works!</p>
+<br><br>
+<div class="centered-container">
+    <div class="centered-content">
+      <h1 style="text-align: center;">Datos previos seleccionados:</h1>
+      <br>
+      <p><strong>Directorio donde está instalado MPAS: </strong>{{ dirMPAS }}</p>
+      <p><strong>Directorio donde está instalado WPS: </strong>{{ dirWPS }}</p>
+      <p><strong>Directorio de casos para MPAS (donde se van a guardar los diferentes casos): </strong>{{ dirCasos }}</p>
+      <p><strong>Directorio del caso concreto para MPAS (subdirectorio del anterior donde se va a ejecutar MPAS): </strong>{{ dirCaso }}</p>
+      <p><strong>Fecha de comienzo de la simulación: </strong>{{ fecha }}</p>
+      <p><strong>Hora de comienzo de la simulación: </strong>{{ hora }}</p>
+      <p><strong>Número de horas de la simulación: </strong>{{ duracion }}</p>
+      <p><strong>Directorio de datos geográficos: </strong>{{ dirGEO }}</p>
+      <br>
+  
+      <p style="text-align: center;">Si los datos NO son los deseados, pulse el botón de Atrás del navegador.</p>
+      <br>
+      <p style="text-align: center;">Si los datos SÍ son los deseados, realiza los siguientes pasos:</p>
+  
+      <br>
+      <div style="display:flex; justify-content:center;">
+        <button class="btn" (click)="goToMallas()">Siguiente</button>
+      </div>
+    </div>
+  </div>
+  
