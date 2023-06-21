@@ -94,6 +94,18 @@ goToNextPage() {
     } else if (!this.longitud) {
       alert('Debes ingresar la longitud antes de continuar.');
     } else {
+      this.validateLatitud();
+        this.validateLongitud();
+        
+        if (this.latitudErrorMessage) {
+            alert(this.latitudErrorMessage);
+            return;
+        }
+
+        if (this.longitudErrorMessage) {
+            alert(this.longitudErrorMessage);
+            return;
+        }
       const selectedLabel = (<HTMLInputElement>document.querySelector('input[name="mesh"]:checked')).getAttribute('data-label');
       const imageSrc = (<HTMLImageElement>document.querySelector('input[name="mesh"]:checked + .form-check-label img')).src;
       const queryParams = {
