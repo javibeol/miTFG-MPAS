@@ -24,15 +24,17 @@
       <p>2] Ejecuta el siguiente comando para descargar el archivo "create_a_new_MPAS_case.sh" ya configurado:</p>
       <p style="text-align: center;">
             <!-- <a [href]="generateDownloadLink1()" download="create_a_new_MPAS_case.sh">Descargar "create_a_new_MPAS_case.sh"</a> -->
-            wget {{downloadLink1}}
+            <!-- wget {{downloadLink1}} -->
+            wget http://localhost:3000/files/create_a_new_MPAS_case.sh
       </p>
-      <p>3] Mete el script que acabas de descargar en el directorio de casos y ejecútalo con el comando:</p>
+      <p>3] Ejecúta el script que te acabas de descargar con el comando:</p>
       <p style="text-align: center;">./create_a_new_MPAS_case.sh {{dirCaso}}</p>
-      <p>4] Haz clic en el enlace para descargar el archivo "namelist.init_atmosphere" ya configurado:</p>
+      <p>4] Ejecuta el siguiente comando para descargar el archivo "namelist.init_atmosphere" ya configurado:</p>
       <p style="text-align: center;">
-            <a [href]="generateDownloadLink2()" download="namelist.init_atmosphere">Descargar "namelist.init_atmosphere"</a>
+            <!-- <a [href]="generateDownloadLink2()" download="namelist.init_atmosphere">Descargar "namelist.init_atmosphere"</a> -->
+            wget http://localhost:3000/files/namelist.init_atmosphere
       </p>
-      <p>5] Una vez descargado los archivos, haz clic en siguiente para seleccionar la malla deseada:</p>
+      <p>5] Una vez descargado los archivos, haz clic en siguiente para poder seleccionar la malla deseada:</p>
       <div style="display:flex; justify-content:center;">
         <button class="btn" (click)="goToMallas()">Siguiente</button>
       </div>

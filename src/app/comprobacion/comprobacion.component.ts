@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -21,7 +22,11 @@ export class ComprobacionComponent implements OnInit {
   downloadLink1: string | undefined;
   downloadLink2: string | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router, private location: Location) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -36,7 +41,6 @@ export class ComprobacionComponent implements OnInit {
 
       // Llama a las funciones que generan las URLs
       this.generateDownloadLink1();
-      this.generateDownloadLink2();
     });
   }
 
@@ -61,8 +65,7 @@ cd $1
 #2. Link the init atmosphere model and atmosphere model executables to the run directory, as well as physics lookup tables (src/core atmosphere/physics/physics wrf/files/*).
 #3. Copy the namelist.*, streams.*, and stream list.* files to the run directory.
     
-#MPDIR=\${HOME}/entorno/instaladores/MPAS-Model-7.0
-MPDIR=\${HOME}${dirMPAS}
+MPDIR=${dirMPAS}
     
 #linking executables 
 ln -s \${MPDIR}/atmosphere_model atmosphere_model
@@ -104,72 +107,17 @@ cd ..`;
   
   return url */;
 
-  const data = new Blob([fileContent1], { type: 'text/plain' });
-  this.downloadLink1 = window.URL.createObjectURL(data);
-}
+  // envía una solicitud al servidor para guardar el archivo
+  this.http.post('http://localhost:3000/saveFile', {
+    fileName: fileName1,
+    content: fileContent1
+  }).subscribe(
+    response => console.log('Respuesta del servidor: ', response),
+    error => console.error('Error del servidor: ', error)
+  );
 
-generateDownloadLink2(): string {
-  const fileName2 = 'namelist.init_atmosphere';
-  const dirGEO = this.dirGEO; 
-
-  const fileContent2 = `&nhyd_model
-  config_init_case = 7
-  config_start_time = '2010-10-23_00:00:00'
-  config_stop_time = '2010-10-23_00:00:00'
-  config_theta_adv_order = 3
-  config_coef_3rd_order = 0.25
-/
-&dimensions
-  config_nvertlevels = 55
-  config_nsoillevels = 4
-  config_nfglevels = 38
-  config_nfgsoillevels = 4
-/
-&data_sources
-  config_geog_data_path = '${dirGEO}'
-  config_met_prefix = 'CFSR'
-  config_sfc_prefix = 'SST'
-  config_fg_interval = 86400
-  config_landuse_data = 'MODIFIED_IGBP_MODIS_NOAH'
-  config_topo_data = 'GMTED2010'
-  config_vegfrac_data = 'MODIS'
-  config_albedo_data = 'MODIS'
-  config_maxsnowalbedo_data = 'MODIS'
-  config_supersample_factor = 3
-  config_use_spechumd = false
-/
-&vertical_grid
-  config_ztop = 30000.0
-  config_nsmterrain = 1
-  config_smooth_surfaces = true
-  config_dzmin = 0.3
-  config_nsm = 30
-  config_tc_vertical_grid = true
-  config_blend_bdy_terrain = false
-/
-&interpolation_control
-  config_extrap_airtemp = 'linear'
-/
-&preproc_stages
-  config_static_interp = true
-  config_native_gwd_static = true
-  config_vertical_grid = true
-  config_met_interp = true
-  config_input_sst = false
-  config_frac_seaice = true
-/
-&io
-  config_pio_num_iotasks = 0
-  config_pio_stride = 1
-/
-&decomposition
-  config_block_decomp_file_prefix = 'x1.40962.graph.info.part.'
-/`;
-  
-  const data = new Blob([fileContent2], { type: 'text/plain' });
-  const url = window.URL.createObjectURL(data);
-  
-  return url;
+  /* const data = new Blob([fileContent1], { type: 'text/plain' });
+  this.downloadLink1 = window.URL.createObjectURL(data); */
 }
 
 goToMallas(): void {

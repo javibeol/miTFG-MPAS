@@ -17,34 +17,53 @@
         <br><br>
         <p style="text-align: center;">Si los datos sí son los deseados, realiza los siguientes pasos:</p>
         <p>1] Sitúate en el directorio del caso dónde quieres realizar la ejecución:</p>
-        <p style="text-align: center;">cd {{dirCasos}}{{dirCaso}}</p>
+        <p style="text-align: center;">cd {{dirCasos}}/{{dirCaso}}</p>
         <p>2] Ejecuta el siguiente comando para descargar el archivo de la malla:</p>
         <p style="text-align: center;">wget https://www2.mmm.ucar.edu/projects/mpas/atmosphere_meshes/{{nombre}}.tar.gz</p>
         <p>3] Ejecuta el siguiente comando para descomprimir el archivo que acabas de descargar:</p>
         <p style="text-align: center;">tar -xzf {{nombre}}.tar.gz</p>
         <!-- <p>4] Haz clic en <a [href]="generateDownloadLink()">Descargar ficheros</a> para descargar los ficheros necesarios para la simulación ya configurados para los datos seleccionados:</p> -->
-        <p *ngIf="src">4] Haz clic en el enlace para descargar el archivo namelist.input ya configurado:</p>
+        <p *ngIf="src">4] Ejecuta el siguiente comando para descargar el archivo namelist.input ya configurado:</p>
         <p *ngIf="src" style="text-align: center;">
-            <a [href]="generateDownloadLink1()" download="namelist.input">Descargar "namelist.input"</a>
-            <!-- <a [href]="generateDownloadLink2()" download="archivo2.txt">Descargar archivo2.txt</a> | -->
+            <!-- <a [href]="generateDownloadLink1()" download="namelist.input">Descargar "namelist.input"</a>
+            <a [href]="generateDownloadLink2()" download="archivo2.txt">Descargar archivo2.txt</a> | -->
+            wget http://localhost:3000/files/namelist.input
         </p>
         <p *ngIf="src">5] Ejecuta el siguiente comando para ejecutar la utilidad de rotación de la malla:</p>
         <p *ngIf="src" style="text-align: center;">grid_rotate {{nombre}}.grid.nc {{nombre}}.grid_out.nc</p>
-        <p *ngIf="src">6] Haz clic en el enlace para descargar el archivo streams.init_atmosphere ya configurado:</p>
+
+        <p *ngIf="src">6] Ejecuta el siguiente comando para descargar el archivo "namelist.init_atmosphere" ya configurado:</p>
         <p *ngIf="src" style="text-align: center;">
-            <a [href]="generateDownloadLink2()" download="streams.init_atmosphere">Descargar "streams.init_atmosphere"</a>
+              <!-- <a [href]="generateDownloadLink4()" download="namelist.init_atmosphere">Descargar "namelist.init_atmosphere"</a> -->
+              wget http://localhost:3000/files/namelist.init_atmosphere
         </p>
-        <p *ngIf="!src">5] Haz clic en el enlace para descargar el archivo streams.init_atmosphere ya configurado:</p>
+        <p *ngIf="!src">4] Ejecuta el siguiente comando para descargar el archivo "namelist.init_atmosphere" ya configurado:</p>
         <p *ngIf="!src" style="text-align: center;">
-            <a [href]="generateDownloadLink3()" download="streams.init_atmosphere">Descargar "streams.init_atmosphere"</a>
+              <!-- <a [href]="generateDownloadLink4()" download="namelist.init_atmosphere">Descargar "namelist.init_atmosphere"</a> -->
+              wget http://localhost:3000/files/namelist.init_atmosphere
         </p>
 
-        <p *ngIf="src">7] Una vez descargados los archivos, ejecuta el siguiente comando:</p>
+        <p *ngIf="src">7] Ejecuta el siguiente comando para descargar el archivo streams.init_atmosphere ya configurado:</p>
+        <p *ngIf="src" style="text-align: center;">
+            <!-- <a [href]="generateDownloadLink2()" download="streams.init_atmosphere">Descargar "streams.init_atmosphere"</a> -->
+            wget http://localhost:3000/files/streams.init_atmosphere
+        </p>
+        <p *ngIf="!src">5] Ejecuta el siguiente comando para descargar el archivo streams.init_atmosphere ya configurado:</p>
+        <p *ngIf="!src" style="text-align: center;">
+            <!-- <a [href]="generateDownloadLink3()" download="streams.init_atmosphere">Descargar "streams.init_atmosphere"</a> -->
+            wget http://localhost:3000/files/streams.init_atmosphere
+        </p>
+
+        <p *ngIf="src">8] Una vez descargados los archivos, ejecuta el siguiente comando:</p>
         <p *ngIf="src" style="text-align: center;">./init_atmosphere_model</p>
         <p *ngIf="!src">6] Una vez descargados los archivos, ejecuta el siguiente comando:</p>
         <p *ngIf="!src" style="text-align: center;">./init_atmosphere_model</p>
         <p style="text-align: center;">(NOTA: Este fichero se puede reutilizar mientras no se cambie ni la resolución ni la configuración de la malla).</p>
-
+        <p *ngIf="src">9] Crea un directorio dentro del subcaso llamado "get_grib":</p>
+        <p *ngIf="!src">6] Crea un directorio dentro del subcaso llamado "get_grib":</p>
+        <p style="text-align: center;">mkdir get_grib</p>
+        <p style="text-align: center;">cd get_grib</p>
+        
         
     </div>
 </div>
