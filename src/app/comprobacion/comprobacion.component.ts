@@ -18,6 +18,9 @@ export class ComprobacionComponent implements OnInit {
   duracion: string | undefined;
   dirGEO: string | undefined;
 
+  downloadLink1: string | undefined;
+  downloadLink2: string | undefined;
+
   constructor(private route: ActivatedRoute, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
@@ -30,10 +33,14 @@ export class ComprobacionComponent implements OnInit {
       this.hora = params['hora'];
       this.duracion = params['duracion'];
       this.dirGEO = params['dirGEO'];
+
+      // Llama a las funciones que generan las URLs
+      this.generateDownloadLink1();
+      this.generateDownloadLink2();
     });
   }
 
-generateDownloadLink1(): string {
+generateDownloadLink1(): void {
   const fileName1 = 'create_a_new_MPAS_case.sh';
   const dirMPAS = this.dirMPAS; 
 
@@ -92,10 +99,13 @@ cp \${MPDIR}/streams.init_atmosphere .
     
 cd ..`;
   
-  const data = new Blob([fileContent1], { type: 'text/plain' });
+  /* const data = new Blob([fileContent1], { type: 'text/plain' });
   const url = window.URL.createObjectURL(data);
   
-  return url;
+  return url */;
+
+  const data = new Blob([fileContent1], { type: 'text/plain' });
+  this.downloadLink1 = window.URL.createObjectURL(data);
 }
 
 generateDownloadLink2(): string {

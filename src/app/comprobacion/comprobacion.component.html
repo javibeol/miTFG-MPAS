@@ -21,10 +21,10 @@
       <p style="text-align: center;">Si los datos SÍ son los deseados, realiza los siguientes pasos:</p>
       <p>1] Sitúate en el directorio de casos dónde vas a guardar los distintos casos</p>
       <p style="text-align: center;">cd {{dirCasos}}</p>
-      <p>2] Haz clic en el enlace para descargar el archivo "create_a_new_MPAS_case.sh" ya configurado:</p>
+      <p>2] Ejecuta el siguiente comando para descargar el archivo "create_a_new_MPAS_case.sh" ya configurado:</p>
       <p style="text-align: center;">
-            <a [href]="generateDownloadLink1()" download="create_a_new_MPAS_case.sh">Descargar "create_a_new_MPAS_case.sh"</a>
-            <!-- <a [href]="generateDownloadLink2()" download="archivo2.txt">Descargar archivo2.txt</a> | -->
+            <!-- <a [href]="generateDownloadLink1()" download="create_a_new_MPAS_case.sh">Descargar "create_a_new_MPAS_case.sh"</a> -->
+            wget {{downloadLink1}}
       </p>
       <p>3] Mete el script que acabas de descargar en el directorio de casos y ejecútalo con el comando:</p>
       <p style="text-align: center;">./create_a_new_MPAS_case.sh {{dirCaso}}</p>
