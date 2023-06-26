@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./next-page.component.css']
 })
 
-export class NextPageComponent implements OnInit{
+export class NextPageComponent implements OnInit, AfterViewInit{
   nombre: string | null = null;
   latitud: string | null = null;
   longitud: string | null = null;
@@ -64,6 +64,10 @@ ngOnInit() {
     this.generateDownloadLink5();
     this.generateDownloadLink6();
     this.generateDownloadLink7();
+}
+
+ngAfterViewInit() {
+  window.scrollTo(0, 0); // Ajusta la posición del scroll a la parte superior
 }
 
 private extractRelativePath(url: string): string {

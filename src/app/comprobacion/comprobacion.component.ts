@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './comprobacion.component.html',
   styleUrls: ['./comprobacion.component.css']
 })
-export class ComprobacionComponent implements OnInit {
+export class ComprobacionComponent implements OnInit, AfterViewInit {
   dirMPAS: string | undefined;
   dirWPS: string | undefined;
   dirCasos: string | undefined;
@@ -25,7 +25,7 @@ export class ComprobacionComponent implements OnInit {
     private location: Location,
     private http: HttpClient) { }
 
-  ngOnInit(): void {
+ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.dirMPAS = params['dirMPAS'];
       this.dirWPS = params['dirWPS'];
@@ -39,7 +39,11 @@ export class ComprobacionComponent implements OnInit {
       // Llama a las funciones que generan las URLs
       this.generateDownloadLink1();
     });
-  }
+}
+
+ngAfterViewInit() {
+  window.scrollTo(0, 0); // Ajusta la posición del scroll a la parte superior
+}
 
 //archivo create_a_new_MPAS_case.sh
 generateDownloadLink1(): void {

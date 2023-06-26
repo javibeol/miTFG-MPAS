@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MallaService } from './malla.service';
 import { Location } from '@angular/common';
@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
   templateUrl: './mallas.component.html',
   styleUrls: ['./mallas.component.css']
 })
-export class MallasComponent implements OnInit{
+export class MallasComponent implements OnInit, AfterViewInit{
   selectedUniformeMesh: string = '';
   selectedMesh: string = '';
   
@@ -51,7 +51,11 @@ ngOnInit() {
       this.duracion = params['duracion'];
       this.dirGEO = params['dirGEO'];
     });
-  }
+}
+
+ngAfterViewInit() {
+  window.scrollTo(0, 0); // Ajusta la posición del scroll a la parte superior
+}
 
 selectImage(option: string) {
     this.selectedMesh = option;
