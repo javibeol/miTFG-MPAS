@@ -1,0 +1,57 @@
+<br><br>
+<div class="centered-container">
+    <div class="centered-content">
+        <p style="text-align: center;"><strong>Si quieres volver atrás, pulsa el siguiente botón:</strong></p>
+        <p style="text-align: center;">(Esto <span style="color: red;">sobreescribirá</span> los archivos "namelist.init_atmosphere" y "streams.init_atmosphere" para</p>
+        <p style="text-align: center;">poder usarlos en el apartado anterior)</p>
+        <div style="display:flex; justify-content:center;">
+            <button class="btn2" (click)="goBack()">Atrás</button>
+        </div>
+        <br><br>
+        <p style="text-align: center;"><strong> Contínua con los siguientes pasos:</strong></p>
+        <p>1] Descarga el archivo "namelist.init_atmosphere" ya configurado:</p>
+        <p style="text-align: center;">
+           wget http://localhost:3000/files/namelist.init_atmosphere
+        </p>
+        <p>2] Descarga el archivo "streams.init_atmosphere" ya configurado:</p>
+        <p style="text-align: center;">
+              wget http://localhost:3000/files/streams.init_atmosphere
+        </p>
+        <p>3] Una vez descargado los archivos ejecuta el siguiente comando:</p>
+        <p style="text-align: center;">./init_atmosphere_model</p>
+        <p>4] Descarga el archivo namelist.atmosphere ya configurado:</p>
+        <p style="text-align: center;">
+            wget http://localhost:3000/files/namelist.atmosphere
+        </p>
+        <p>5] Descarga el archivo streams.init_atmosphere ya configurado:</p>
+        <p style="text-align: center;">
+            wget http://localhost:3000/files/streams.atmosphere
+        </p>
+        <p>6] Una vez descargados los archivos, ejecuta el siguiente comando:</p>
+        <p style="text-align: center;">./atmosphere_model</p>
+
+        <p>7] Para ejecutar en paralelo:</p>
+        <p style="text-align: center;">
+            Asegúrate de comprobar en cuántas partes permite estar dividida la malla que has descargado y descomprimido.
+        </p>
+        <p style="text-align: center;">
+            Para verlo, puedes ejecutar este comando:
+        </p>
+        <p style="text-align: center;">ls -l {{dirCasos}}/{{dirCaso}}/{{nombre}}</p>
+        <p style="text-align: center;">
+            (El NPROC es el número de procesos MPI que quieras crear dependiendo de las partes en las que la malla permita dividirse)
+        </p>
+        <p>Ejecuta el siguiente comando:</p>
+        <p style="text-align: center;">mpiexec -n NPROC ./atmosphere_model</p>
+  
+      <div style="display:flex; justify-content:center;">
+        <button class="btn" (click)="goToHome()">Finalizar</button>
+      </div>
+        
+    </div>
+    
+</div>
+
+
+
+

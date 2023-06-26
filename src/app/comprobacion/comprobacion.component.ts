@@ -19,9 +19,6 @@ export class ComprobacionComponent implements OnInit {
   duracion: string | undefined;
   dirGEO: string | undefined;
 
-  downloadLink1: string | undefined;
-  downloadLink2: string | undefined;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -44,6 +41,7 @@ export class ComprobacionComponent implements OnInit {
     });
   }
 
+//archivo create_a_new_MPAS_case.sh
 generateDownloadLink1(): void {
   const fileName1 = 'create_a_new_MPAS_case.sh';
   const dirMPAS = this.dirMPAS; 
@@ -121,7 +119,7 @@ cd ..`;
 }
 
 goToMallas(): void {
-  // Aquí puedes hacer lo que necesites con los parámetros y luego redirigir a /mallas
+  // parámetros y luego redirigir a /mallas
   this.router.navigate(['/mallas'], { queryParams: this.route.snapshot.queryParams });
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MallaService } from './malla.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-mallas',
@@ -31,7 +32,7 @@ export class MallasComponent implements OnInit{
   latitudErrorMessage: string = 'El valor debe estar entre el rango de -90 a 90';
   longitudErrorMessage: string = 'El valor debe estar entre el rango de -180 a 180';
   
-  constructor(private router: Router, private mallaService: MallaService, private route: ActivatedRoute){}
+  constructor(private router: Router, private mallaService: MallaService, private route: ActivatedRoute, private location: Location){}
   
 ngOnInit() {
     this.selectedUniformeMesh = this.mallaService.getSelectedUniformeMesh();
@@ -149,6 +150,10 @@ validateLongitud() {
   } else {
     this.longitudErrorMessage = '';
   }
+}
+
+goBack() {
+  this.location.back();
 }
 
 }

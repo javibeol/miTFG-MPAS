@@ -13,12 +13,11 @@
       <p><strong>Directorio de datos geográficos: </strong>{{ dirGEO }}</p>
       <br>
   
-      <p style="text-align: center;">Si los datos NO son los deseados, pulse el botón de Atrás.</p>
-      <div style="display:flex; justify-content:center;">
-        <button class="btn" (click)="goBack()">Atrás</button>
+      <p style="text-align: center;">Si los datos <span style="color: red;"><strong>NO</strong></span> son los deseados, pulse el botón de Atrás.</p>      <div style="display:flex; justify-content:center;">
+        <button class="btn2" (click)="goBack()">Atrás</button>
       </div>
       <br><br>
-      <p style="text-align: center;">Si los datos SÍ son los deseados, realiza los siguientes pasos:</p>
+      <p style="text-align: center;">Si los datos <span style="color: green;"><strong>SÍ</strong></span> son los deseados, realiza los siguientes pasos:</p>
       <p>1] Sitúate en el directorio de casos dónde vas a guardar los distintos casos</p>
       <p style="text-align: center;">cd {{dirCasos}}</p>
       <p>2] Ejecuta el siguiente comando para descargar el archivo "create_a_new_MPAS_case.sh" ya configurado:</p>

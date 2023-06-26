@@ -32,7 +32,22 @@
     font-size: 1.2rem;
     transition: all 0.2s;
   }
+
+  .btn2 {
+    background-color: rgb(91, 204, 252);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+  }
   
 .btn:hover {
     background-color: green;
+  }
+
+.btn2:hover {
+    background-color: red;
   }

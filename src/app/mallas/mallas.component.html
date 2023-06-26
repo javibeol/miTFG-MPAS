@@ -2,14 +2,20 @@
   <!-- Resto de las etiquetas head -->
   <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
 </head>
+<br><br><br><br>
 <div class="centered-container">
     <div class="centered-content">
-      <!-- <h1>PASOS PARA COMENZAR UNA SIMULACIÓN: </h1> -->
+      <p style="text-align: center;"><strong>Si quieres volver atrás, pulsa el siguiente botón</strong></p>
+        <p style="text-align: center;">(Esto sobreescribirá los archivos generados para el apartado anterior)</p>
+        <div style="display:flex; justify-content:center;">
+            <button class="btn2" (click)="goBack()">Atrás</button>
+        </div>
+        <br><br>
       <p>· En el caso de Mallas casi uniformes: Seleccione una malla y haga clic en Siguiente.</p>
       <p>· En el caso de Mallas de resolución variable: Introduzca su Latitud y Longitud, seleccione una malla y haga clic en Siguiente.</p>
     </div>
 </div>
-<br><br>
+<br><br><br><br><br><br>
 <h2 style="text-align: center; color: #04085a;">Mallas casi uniformes disponibles</h2>
 <!-- <app-malla></app-malla> -->
 <div class="centro">Selecciona una malla:</div>

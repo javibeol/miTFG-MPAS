@@ -22,6 +22,7 @@ import { NextPageComponent } from './next-page/next-page.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ComprobacionComponent } from './comprobacion/comprobacion.component';
 import { FormService } from './first-page/form.service';
+import { LastPageComponent } from './last-page/last-page.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponentComponent},
@@ -33,6 +34,7 @@ const appRoutes:Routes=[
   {path:'first', component:FirstPageComponent},
   {path:'next', component:NextPageComponent},
   {path:'comprobacion', component:ComprobacionComponent},
+  {path:'last', component:LastPageComponent},
   {path:'**', component:ErrorPersonalizadoComponentComponent}
 ];
 
@@ -48,7 +50,8 @@ const appRoutes:Routes=[
     RegisterComponent,
     NextPageComponent,
     FirstPageComponent,
-    ComprobacionComponent
+    ComprobacionComponent,
+    LastPageComponent
   ],
   imports: [
     BrowserModule,
