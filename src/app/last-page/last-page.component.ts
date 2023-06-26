@@ -71,57 +71,57 @@ generateDownloadLink1(): void {
   const dirGEO = this.dirGEO;  
 
   const fileContent1 = `&nhyd_model
-  config_init_case = 7
-  config_start_time = '${fecha}_${hora}'
-  config_stop_time = '2010-10-23_00:00:00'
-  config_theta_adv_order = 3
-  config_coef_3rd_order = 0.25
+    config_init_case = 7
+    config_start_time = '${fecha}_${hora}'
+    config_stop_time = '2010-10-23_00:00:00'
+    config_theta_adv_order = 3
+    config_coef_3rd_order = 0.25
 /
 &dimensions
-  config_nvertlevels = 55
-  config_nsoillevels = 4
-  config_nfglevels = 38
-  config_nfgsoillevels = 4
+    config_nvertlevels = 55
+    config_nsoillevels = 4
+    config_nfglevels = 38
+    config_nfgsoillevels = 4
 /
 &data_sources
-  config_geog_data_path = '${dirGEO}'
-  config_met_prefix = 'CFSR'
-  config_sfc_prefix = 'SST'
-  config_fg_interval = 86400
-  config_landuse_data = 'MODIFIED_IGBP_MODIS_NOAH'
-  config_topo_data = 'GMTED2010'
-  config_vegfrac_data = 'MODIS'
-  config_albedo_data = 'MODIS'
-  config_maxsnowalbedo_data = 'MODIS'
-  config_supersample_factor = 3
-  config_use_spechumd = false
+    config_geog_data_path = '${dirGEO}'
+    config_met_prefix = 'CFSR'
+    config_sfc_prefix = 'SST'
+    config_fg_interval = 86400
+    config_landuse_data = 'MODIFIED_IGBP_MODIS_NOAH'
+    config_topo_data = 'GMTED2010'
+    config_vegfrac_data = 'MODIS'
+    config_albedo_data = 'MODIS'
+    config_maxsnowalbedo_data = 'MODIS'
+    config_supersample_factor = 3
+    config_use_spechumd = false
 /
 &vertical_grid
-  config_ztop = 30000.0
-  config_nsmterrain = 1
-  config_smooth_surfaces = true
-  config_dzmin = 0.3
-  config_nsm = 30
-  config_tc_vertical_grid = true
-  config_blend_bdy_terrain = false
+    config_ztop = 30000.0
+    config_nsmterrain = 1
+    config_smooth_surfaces = true
+    config_dzmin = 0.3
+    config_nsm = 30
+    config_tc_vertical_grid = true
+    config_blend_bdy_terrain = false
 /
 &interpolation_control
-  config_extrap_airtemp = 'linear'
+    config_extrap_airtemp = 'linear'
 /
 &preproc_stages
-  config_static_interp = true
-  config_native_gwd_static = true
-  config_vertical_grid = true
-  config_met_interp = true
-  config_input_sst = false
-  config_frac_seaice = true
+    config_static_interp = true
+    config_native_gwd_static = true
+    config_vertical_grid = true
+    config_met_interp = true
+    config_input_sst = false
+    config_frac_seaice = true
 /
 &io
-  config_pio_num_iotasks = 0
-  config_pio_stride = 1
+    config_pio_num_iotasks = 0
+    config_pio_stride = 1
 /
 &decomposition
-  config_block_decomp_file_prefix = 'x1.40962.graph.info.part.'
+    config_block_decomp_file_prefix = 'x1.40962.graph.info.part.'
 /`;
   
   this.http.post('http://localhost:3000/saveFile', {
@@ -139,32 +139,32 @@ generateDownloadLink2(): void {
   const nombre = this.nombre;  
 
   const fileContent2 = `<streams>
-  <immutable_stream name="input"
-                    type="input"
-                    filename_template="${nombre}.static.nc"
-                    input_interval="initial_only" />
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="${nombre}.static.nc"
+                  input_interval="initial_only" />
   
-  <immutable_stream name="output"
-                    type="output"
-                    filename_template="${nombre}.init.nc"
-                    packages="initial_conds"
-                    output_interval="initial_only" />
+<immutable_stream name="output"
+                  type="output"
+                  filename_template="${nombre}.init.nc"
+                  packages="initial_conds"
+                  output_interval="initial_only" />
   
-  <immutable_stream name="surface"
-                    type="output"
-                    filename_template="${nombre}.sfc_update.nc"
-                    filename_interval="none"
-                    packages="sfc_update"
-                    output_interval="86400" />
+<immutable_stream name="surface"
+                  type="output"
+                  filename_template="${nombre}.sfc_update.nc"
+                  filename_interval="none"
+                  packages="sfc_update"
+                  output_interval="86400" />
   
-  <immutable_stream name="lbc"
-                    type="output"
-                    filename_template="lbc.$Y-$M-$D_$h.$m.$s.nc"
-                    filename_interval="output_interval"
-                    packages="lbcs"
-                    output_interval="3:00:00" />
+<immutable_stream name="lbc"
+                  type="output"
+                  filename_template="lbc.$Y-$M-$D_$h.$m.$s.nc"
+                  filename_interval="output_interval"
+                  packages="lbcs"
+                  output_interval="3:00:00" />
   
-  </streams>`;
+</streams>`;
   
   this.http.post('http://localhost:3000/saveFile', {
     fileName: fileName2,
@@ -249,7 +249,7 @@ generateDownloadLink3(): void {
     config_physics_suite = 'mesoscale_reference'
 /
 &soundings
-  config_sounding_interval = 'none'
+    config_sounding_interval = 'none'
 /
 `;
   
@@ -268,57 +268,57 @@ generateDownloadLink4(): void {
   const nombre = this.nombre;  
 
   const fileContent4 = `<streams>
-  <immutable_stream name="input"
-                    type="input"
-                    filename_template="${nombre}.init.nc"
-                    input_interval="initial_only" />
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="${nombre}.init.nc"
+                  input_interval="initial_only" />
   
-  <immutable_stream name="restart"
-                    type="input;output"
-                    filename_template="restart.$Y-$M-$D_$h.$m.$s.nc"
-                    input_interval="initial_only"
-                    output_interval="1_00:00:00" />
+<immutable_stream name="restart"
+                  type="input;output"
+                  filename_template="restart.$Y-$M-$D_$h.$m.$s.nc"
+                  input_interval="initial_only"
+                  output_interval="1_00:00:00" />
   
-  <stream name="output"
-          type="output"
-          filename_template="history.$Y-$M-$D_$h.$m.$s.nc"
-          output_interval="6:00:00" >
+<stream name="output"
+        type="output"
+        filename_template="history.$Y-$M-$D_$h.$m.$s.nc"
+        output_interval="6:00:00" >
   
     <file name="stream_list.atmosphere.output"/>
-  </stream>
+</stream>
   
-  <stream name="diagnostics"
-          type="output"
-          filename_template="diag.$Y-$M-$D_$h.$m.$s.nc"
-          output_interval="3:00:00" >
+<stream name="diagnostics"
+        type="output"
+        filename_template="diag.$Y-$M-$D_$h.$m.$s.nc"
+        output_interval="3:00:00" >
   
     <file name="stream_list.atmosphere.diagnostics"/>
-  </stream>
+</stream>
   
-  <stream name="surface"
-          type="input"
-          filename_template="${nombre}.sfc_update.nc"
-          filename_interval="none"
-          input_interval="none" >
+<stream name="surface"
+        type="input"
+        filename_template="${nombre}.sfc_update.nc"
+        filename_interval="none"
+        input_interval="none" >
   
     <file name="stream_list.atmosphere.surface"/>
-  </stream>
+</stream>
   
-  <immutable_stream name="iau"
-                    type="input"
-                    filename_template="${nombre}.AmB.$Y-$M-$D_$h.$m.$s.nc"
-                    filename_interval="none"
-                    packages="iau"
-                    input_interval="initial_only" />
+<immutable_stream name="iau"
+                  type="input"
+                  filename_template="${nombre}.AmB.$Y-$M-$D_$h.$m.$s.nc"
+                  filename_interval="none"
+                  packages="iau"
+                  input_interval="initial_only" />
   
-  <immutable_stream name="lbc_in"
-                    type="input"
-                    filename_template="lbc.$Y-$M-$D_$h.$m.$s.nc"
-                    filename_interval="input_interval"
-                    packages="limited_area"
-                    input_interval="3:00:00" />
+<immutable_stream name="lbc_in"
+                  type="input"
+                  filename_template="lbc.$Y-$M-$D_$h.$m.$s.nc"
+                  filename_interval="input_interval"
+                  packages="limited_area"
+                  input_interval="3:00:00" />
   
-  </streams>
+</streams>
   `;
   
   this.http.post('http://localhost:3000/saveFile', {

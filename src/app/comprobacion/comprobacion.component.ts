@@ -55,7 +55,7 @@ generateDownloadLink1(): void {
 #1. Create a run directory (name of directory to be created as parameter)
     
 if [ $# -ne 1 ]
-  then
+   then
       echo "Sintaxis create_new_MPAS_case.sh directory_test"
       exit 1
 fi

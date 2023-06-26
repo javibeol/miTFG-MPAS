@@ -263,19 +263,19 @@ generateDownloadLink5(): void {
   const fileName5 = 'get_grib2.sh'; 
 
   const fileContent5 = `#!/bin/bash
-  # Baja fichero grib
-  # $1 dia
+# Baja fichero grib
+# $1 dia
   
-  if [ $# -ne 1 ]
-  then 
-      echo "Error. Falta parametro: DIA (yyyymmdd)"
-      exit
-  fi
+if [ $# -ne 1 ]
+then 
+    echo "Error. Falta parametro: DIA (yyyymmdd)"
+    exit
+fi
   
-  DAY=$1
-  HOUR=00
+DAY=$1
+HOUR=00
   
-  wget -c -t inf --no-check-certificate --retry-connrefused -O GRIB\${HOUR} "https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl?file=gfs.t"\${HOUR}"""z.pgrb2.0p25.f0\${HOUR}&all_lev=on&all_var=on&dir=%2Fgfs.\${DAY}%2F\${HOUR}%2Fatmos" 
+wget -c -t inf --no-check-certificate --retry-connrefused -O GRIB\${HOUR} "https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl?file=gfs.t"\${HOUR}"""z.pgrb2.0p25.f0\${HOUR}&all_lev=on&all_var=on&dir=%2Fgfs.\${DAY}%2F\${HOUR}%2Fatmos" 
   `;
 
 // envía una solicitud al servidor para guardar el archivo
@@ -295,66 +295,65 @@ generateDownloadLink6(): void {
 
   const fileContent6 = `#!/bin/csh -f
 
-  set alpha = ( A B C D E F G H I J K L M N O P Q R S T U V W X Y Z )
-  set i1 = 1
-  set i2 = 1
-  set i3 = 1
+set alpha = ( A B C D E F G H I J K L M N O P Q R S T U V W X Y Z )
+set i1 = 1
+set i2 = 1
+set i3 = 1
   
-  if ( ( \${#argv} == 1 ) || ( ( \${#argv} == 2 ) && ( \${2} == "." ) ) ) then
+if ( ( \${#argv} == 1 ) || ( ( \${#argv} == 2 ) && ( \${2} == "." ) ) ) then
   
-     rm -f GRIBFILE.??? >& /dev/null
+   rm -f GRIBFILE.??? >& /dev/null
   
-     foreach f ( \${1}* )
+   foreach f ( \${1}* )
      
-        ln -sf \${f} GRIBFILE.$alpha[$i3]$alpha[$i2]$alpha[$i1]
-        @ i1 ++
+      ln -sf \${f} GRIBFILE.$alpha[$i3]$alpha[$i2]$alpha[$i1]
+      @ i1 ++
      
-        if ( $i1 > 26 ) then
-           set i1 = 1
-           @ i2 ++
-          if ( $i2 > 26 ) then
-             set i2 = 1
-             @ i3 ++
-             if ( $i3 > 26 ) then
-                echo "RAN OUT OF GRIB FILE SUFFIXES!"
-             endif
-          endif
-        endif
-     
-     end
-  else if ( \${#argv} > 1 ) then
-  
-     rm -f GRIBFILE.??? >& /dev/null
-  
-     foreach f ( $* )
-     
-        if ( $f != "." ) then
-           ln -sf \${f} GRIBFILE.$alpha[$i3]$alpha[$i2]$alpha[$i1]
-           @ i1 ++
-     
-           if ( $i1 > 26 ) then
-              set i1 = 1
-              @ i2 ++
-              if ( $i2 > 26 ) then
-                 set i2 = 1
-                 @ i3 ++
-                 if ( $i3 > 26 ) then
-                    echo "RAN OUT OF GRIB FILE SUFFIXES!"
-                 endif
-              endif
+      if ( $i1 > 26 ) then
+         set i1 = 1
+         @ i2 ++
+        if ( $i2 > 26 ) then
+           set i2 = 1
+           @ i3 ++
+           if ( $i3 > 26 ) then
+              echo "RAN OUT OF GRIB FILE SUFFIXES!"
            endif
         endif
+      endif
      
-     end
-  else if ( \${#argv} == 0 ) then
-     echo " " 
-     echo " " 
-     echo "   Please provide some GRIB data to link"
-     echo "   usage: $0 path_to_grib_data/grib_data_root"
-     echo " " 
-     echo " " 
-  endif
+   end
+else if ( \${#argv} > 1 ) then
   
+   rm -f GRIBFILE.??? >& /dev/null
+  
+   foreach f ( $* )
+     
+      if ( $f != "." ) then
+         ln -sf \${f} GRIBFILE.$alpha[$i3]$alpha[$i2]$alpha[$i1]
+         @ i1 ++
+     
+         if ( $i1 > 26 ) then
+            set i1 = 1
+            @ i2 ++
+            if ( $i2 > 26 ) then
+               set i2 = 1
+               @ i3 ++
+               if ( $i3 > 26 ) then
+                  echo "RAN OUT OF GRIB FILE SUFFIXES!"
+               endif
+            endif
+         endif
+      endif
+     
+   end
+else if ( \${#argv} == 0 ) then
+   echo " " 
+   echo " " 
+   echo "   Please provide some GRIB data to link"
+   echo "   usage: $0 path_to_grib_data/grib_data_root"
+   echo " " 
+   echo " " 
+endif
   `;
 
 // envía una solicitud al servidor para guardar el archivo
@@ -376,41 +375,41 @@ generateDownloadLink7(): void {
   const hora = this.hora;
 
   const fileContent7 = `&share
-  wrf_core = 'ARW',
-    max_dom = 2,
-  start_date = '${fecha}_${hora}','${fecha}_${hora}','${fecha}_${hora}'
-  end_date   = '${fecha}_${hora}','${fecha}_${hora}','${fecha}_${hora}'
-  interval_seconds = 1800
-  io_form_geogrid = 2,
- /
+ wrf_core = 'ARW',
+     max_dom = 2,
+ start_date = '${fecha}_${hora}','${fecha}_${hora}','${fecha}_${hora}'
+ end_date   = '${fecha}_${hora}','${fecha}_${hora}','${fecha}_${hora}'
+ interval_seconds = 1800
+ io_form_geogrid = 2,
+/
  
- &geogrid
-  parent_id         =   1,   1,   2
-  parent_grid_ratio =   1,   3,   3
-  i_parent_start    =   1,  38,  23
-  j_parent_start    =   1,  40,  19
-  e_we              = 128, 145, 46
-  e_sn              = 121, 127, 43
-  geog_data_res     = '5m','2m','30s'
-  dx = 27000,
-  dy = 27000,
-  map_proj = 'lambert',
-  ref_lat   =  39.83,
-  ref_lon   = -2.03,
-  truelat1  =  30.0,
-  truelat2  =  60.0,
-  stand_lon = -1.0,
- /
+&geogrid
+ parent_id         =   1,   1,   2
+ parent_grid_ratio =   1,   3,   3
+ i_parent_start    =   1,  38,  23
+ j_parent_start    =   1,  40,  19
+ e_we              = 128, 145, 46
+ e_sn              = 121, 127, 43
+ geog_data_res     = '5m','2m','30s'
+ dx = 27000,
+ dy = 27000,
+ map_proj = 'lambert',
+ ref_lat   =  39.83,
+ ref_lon   = -2.03,
+ truelat1  =  30.0,
+ truelat2  =  60.0,
+ stand_lon = -1.0,
+/
  
- &ungrib
-  out_format = 'WPS',
-  prefix = 'GFS',
- /
+&ungrib
+ out_format = 'WPS',
+ prefix = 'GFS',
+/
  
- &metgrid
-  fg_name = 'GFS'
-  io_form_metgrid = 2, 
- /
+&metgrid
+ fg_name = 'GFS'
+ io_form_metgrid = 2, 
+/
  `;
 
 // envía una solicitud al servidor para guardar el archivo
