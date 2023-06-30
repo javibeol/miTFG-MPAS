@@ -10,7 +10,6 @@ import { QuienesSomosComponentComponent } from './quienes-somos-component/quiene
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPersonalizadoComponentComponent } from './error-personalizado-component/error-personalizado-component.component';
 import {HttpClientModule} from '@angular/common/http';
-import { DataServices } from './data.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { FormsModule } from '@angular/forms';
@@ -31,10 +30,10 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesSomosComponentComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegisterComponent},
-  {path:'first', component:FirstPageComponent},
-  {path:'next', component:NextPageComponent},
-  {path:'comprobacion', component:ComprobacionComponent},
-  {path:'last', component:LastPageComponent},
+  {path:'first', component:FirstPageComponent, canActivate:[LoginGuardian]},
+  {path:'next', component:NextPageComponent, canActivate:[LoginGuardian]},
+  {path:'comprobacion', component:ComprobacionComponent, canActivate:[LoginGuardian]},
+  {path:'last', component:LastPageComponent, canActivate:[LoginGuardian]},
   {path:'**', component:ErrorPersonalizadoComponentComponent}
 ];
 
@@ -60,7 +59,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule,
   ],
-  providers: [DataServices, LoginService, CookieService, LoginGuardian, MallaService, FormService],
+  providers: [LoginService, CookieService, LoginGuardian, MallaService, FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
