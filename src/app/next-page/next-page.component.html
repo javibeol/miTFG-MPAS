@@ -70,13 +70,14 @@
         <p *ngIf="!src">8] Descarga el fichero link_grib.csh y ejecútalo:</p>
         <p style="text-align: center;">wget http://localhost:3000/files/link_grib.csh</p>
         <p style="text-align: center;">link_grib.csh GRIB*</p>
-        <p *ngIf="src">11] Descarga el fichero namelist.wps y ejecútalo:</p>
-        <p *ngIf="!src">9] Descarga el fichero namelist.wps y ejecútalo:</p>
+        <p *ngIf="src">11] Descarga el fichero namelist.wps y ejecuta:</p>
+        <p *ngIf="!src">9] Descarga el fichero namelist.wps y ejecuta:</p>
         <p style="text-align: center;">wget http://localhost:3000/files/namelist.wps</p>
-        <p style="text-align: center;">ungrib.exe -> {{dirWPS}}/ungrib/src/ungrib.exe</p>
-        <p style="text-align: center;">Vtable -> {{dirWPS}}/ungrib/Variable_Tables/Vtable.GFS</p>
-        <p style="text-align: center;">otro paso</p>
-        <p style="text-align: center;">otro paso</p>
+        <p style="text-align: center;">ln -s {{dirWPS}}/ungrib/src/ungrib.exe ungrib.exe</p>
+        <p style="text-align: center;">ln -s {{dirWPS}}/ungrib/Variable_Tables/Vtable.GFS Vtable</p>
+        <p style="text-align: center;">./ungrib.exe</p>
+        <p style="text-align: center;">mv GFS:{{ fecha }}_00:00 GFS:{{ fecha }}_00</p>
+        <p style="text-align: center;">cp GFS:{{ fecha }}_00 {{dirCasos}}/{{dirCaso}}</p>
         <br>
         <p style="text-align: center;">Una vez descargado los archivos, haz clic en Siguiente:</p>
         <br>
